@@ -1,0 +1,13 @@
+{
+    "type": "record",
+    "namespace" :  "br.com.byamada.register.avro",
+    "name": "Customer",
+    "version" : "1",
+    "fields" : [
+        {"name" : "name", "type":  "string" ,"doc" :  "Customer Name"},
+        {"name" : "document",  "type":  "string", "doc" : "Customer document number" },
+        {"name" : "age", "type":  "int", "doc": "Customer age"},
+        {"name" :  "isActive", "type": "boolean", "default": true, "doc": "Customer state"}
+    ]
+
+}
