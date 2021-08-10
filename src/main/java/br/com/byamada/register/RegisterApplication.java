@@ -2,6 +2,7 @@ package br.com.byamada.register;
 
 import br.com.byamada.register.model.entity.Perfil;
 import br.com.byamada.register.model.entity.User;
+import br.com.byamada.register.queue.config.CustomerListener;
 import br.com.byamada.register.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,6 +21,9 @@ public class RegisterApplication implements CommandLineRunner {
 	}
 
 	@Autowired
+	private CustomerListener customerListener;
+
+	@Autowired
 	private UserRepository userRepository;
 
 	@Override
@@ -33,6 +37,8 @@ public class RegisterApplication implements CommandLineRunner {
 		User user = new User(null,"user@email.com", passwordEncoder.encode("123456"), perfis);
 		userRepository.save(user);
 
+
+		customerListener.consumer();
 
 
 

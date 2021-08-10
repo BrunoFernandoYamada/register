@@ -2,9 +2,11 @@
 
 package br.com.byamada.register.queue.config;
 
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -21,5 +23,10 @@ public class KafkaProperties {
     private Class<?> keySerializer = StringSerializer.class;
     private Class<?> valueSerializer = KafkaAvroSerializer.class;
     private String schemaRegistryUrl;
+
+    //for consumer
+    private Class<?> keyDeserializer = StringDeserializer.class;
+    private Class<?> valueDeserializer = KafkaAvroDeserializer.class;
+
 
 }

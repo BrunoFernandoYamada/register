@@ -39,7 +39,6 @@ public class CustomerService implements MessagingPort<Customer> {
                 .setIsActive(true)
                 .build();
 
-
         producer.send(this.createProducerRecord(customer), (rm, ex) -> {
             if (ex == null) {
                 log.info("Data sent with success!!!");
@@ -48,8 +47,7 @@ public class CustomerService implements MessagingPort<Customer> {
             }
         });
 
-        producer.flush();
-        producer.close();
+
 
     }
 
